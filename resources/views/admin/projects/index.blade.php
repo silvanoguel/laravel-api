@@ -3,11 +3,7 @@
 @section('content')
     <h1>Project list</h1>
 
-        @if (session('message'))
-            <div class="alert alert-success">
-                {{ session('message') }}
-            </div>
-        @endif
+        @include('partials.session_message')
 
 
         <a href="{{ route('admin.projects.create') }}" class="btn btn-primary">Create a new project</a>
