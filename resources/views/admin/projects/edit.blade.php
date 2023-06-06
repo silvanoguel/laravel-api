@@ -5,6 +5,10 @@
 
     @include('partials.errors')
 
+    <div class="my-3">
+        <a class="btn btn-primary" href="{{ route('admin.projects.index') }}">Go back to Project list</a>
+    </div>
+
     <form method="POST" action="{{ route('admin.projects.update', $project->slug) }}">
         @csrf
         @method('PUT')

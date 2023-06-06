@@ -5,6 +5,10 @@
 
     @include('partials.errors')
 
+    <div class="my-3">
+        <a class="btn btn-primary" href="{{ route('admin.projects.index') }}">Go back to Project list</a>
+    </div>
+
     <form action="{{ route('admin.projects.store') }}" method="POST">
         @csrf
         <div class="mb-3">
@@ -16,7 +20,7 @@
                 </div>
             @enderror
         </div>
-        
+
         <div class="mb-3">
             <label for="content" class="form-label">Content</label>
             <textarea class="form-control" id="content" rows="3" name="content">{{ old('content') }}</textarea>
