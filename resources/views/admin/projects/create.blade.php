@@ -1,26 +1,20 @@
 @extends('layouts.admin')
 
 @section('content')
-    
+    <h2>Create a new project</h2>
 
-    <form method="POST" action="{{route('admin.projects.store')}}">
+    {{-- @include('partials.errors') --}}
+
+    <form action="{{ route('admin.projects.store') }}" method="POST">
         @csrf
         <div class="mb-3">
-            <label for="title" class="form-label">Add Title</label>
-            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror">
-            @error('title')
-                <div class="alert alert-danger">{{$message}}</div>
-            @enderror
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
         </div>
-
-
         <div class="mb-3">
-            <label for="description" class="form-label">Add Description</label>
-            <input type="text" name="description" class="form-control">
+            <label for="content" class="form-label">Content</label>
+            <textarea class="form-control" id="content" rows="3" name="content">{{ old('content') }}</textarea>
         </div>
-        
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button class="btn btn-primary" type="submit">Send</button>
     </form>
-
-
 @endsection
