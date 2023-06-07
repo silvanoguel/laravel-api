@@ -13,7 +13,8 @@
             <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Titolo</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Type</th>
                     <th scope="col">Slug</th>
                     <th scope="col">Actions</th>
                 </tr>
@@ -23,6 +24,7 @@
                     <tr>
                         <th scope="row">{{ $project->id }}</th>
                         <td>{{ $project->title }}</td>
+                        <td>{{ $project->type?->name }}</td>
                         <td>{{ $project->slug }}</td>
                         <td>
                             <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-success">
