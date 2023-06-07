@@ -39,7 +39,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
         $data['slug'] = Str::slug($data['title']);
         $project = Project::create($data);
         
@@ -76,7 +76,7 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        $data = $request->all();
+        $data = $request->validated();
         $data['slug'] = Str::slug($data['title']);
         $project->update($data);
         return redirect()->route('admin.projects.index')->with('message', "{$project->title} is modified succesfully");
