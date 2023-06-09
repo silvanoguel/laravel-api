@@ -2,7 +2,7 @@
 
 @section('content')
     <h1 class="text-center my-4">{{ $project->title }}</h1>
-    <div class="my-4">
+    <div class="my-5">
         @if ($project->type)
             <h5>Type:</h5>
             <span>{{ $project->type->name }}</span>
@@ -12,12 +12,12 @@
       
     </div>
 
-    <div class="my-4">
+    <div class="my-5">
         <h5>Technologies: </h5>
         @forelse ($project->technologies as $technology)
             <span>{{ $technology->name }} {{ $loop->last ? '' : ',' }}</span>
         @empty
-            <span>No technology</span>
+            <span>No technology at the moment</span>
         @endforelse
     </div>
 

@@ -13,7 +13,8 @@
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}">
+            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
+                value="{{ old('title') }}">
             @error('title')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -29,6 +30,19 @@
                     <option @selected(old('type_id') == $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
                 @endforeach
             </select>
+        </div>
+
+        <div class="my-4">
+            <h5>choose technology</h5>
+            @foreach ($technologies as $technology)
+                <div class="form-check">
+                    <input class="form-check-input" name="technologies[]" type="checkbox" value="{{ $technology->id }}"
+                        id="tag-{{ $technology->id }}" @checked(in_array($technology->id, old('technologies', [])))>
+                    <label class="form-check-label" for="technology-{{ $technology->id }}">
+                        {{ $technology->name }}
+                    </label>
+                </div>
+            @endforeach
         </div>
 
 
